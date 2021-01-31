@@ -6,12 +6,21 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+// added pr request  Spatia package  laravel Permission and role 
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    /* this pr request Spatia 
+     all https://spatie.be/docs/laravel-permission/v4/prerequisites  */
+    use HasRoles;
+
+
+
     /**
+     * 
      * The attributes that are mass assignable.
      *
      * @var array
