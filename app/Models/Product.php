@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+/*   get  customers consume this product */
+    public function customers()
+    {
+    return $this->belongsToMany(Customer::class)->withPivot('qnt')->withTimestamps()->using(RoleUser::class);
+    
+    }
+
 }

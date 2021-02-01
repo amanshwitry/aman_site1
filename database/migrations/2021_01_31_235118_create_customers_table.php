@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemsTable extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->integer('qnt');
-            $table->foreignId('product_id')->constrained('products');
-            $table->foreignId('customer_id')->constrained('users');
+            $table->string ('mobile', 20)->comment('required|string|min:8|max:11');
+            $table->index(['mobile', 'user_id']);
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('customers');
     }
 }

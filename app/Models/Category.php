@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+
+/**
+     * Get the products for the this category.
+     */
+    public function products()
+    {
+        return $this->hasMany(Products::class);
+    }
+
+
 }

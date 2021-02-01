@@ -16,7 +16,6 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->comment('The name of the name ');
-            $table->text('description')->comment('The full text description of the product type.');
             $table->decimal('price', $precision = 8, $scale = 4);
             $table->foreignId('cat_id')->constrained('categories');
             $table->timestamps();
