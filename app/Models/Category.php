@@ -9,13 +9,25 @@ class Category extends Model
 {
     use HasFactory;
 
+     /**
+     * 
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+      
+    ];
 
-/**
+    /**
+
+
      * Get the products for the this category.
      */
     public function products()
     {
-        return $this->hasMany(Products::class);
+        return $this->hasMany(Product::class);
     }
 
 

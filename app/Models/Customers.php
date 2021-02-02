@@ -22,8 +22,9 @@ class Customers extends Model
    /*  customer has many product*/
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class,'customer_products','customer_id','product_id');
     }
+
 
 
 }

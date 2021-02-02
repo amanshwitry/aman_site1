@@ -9,6 +9,14 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name','price','category_id',
+      
+    ];
+
+
+
+
 
     public function category()
     {
@@ -17,8 +25,10 @@ class Product extends Model
 /*   get  customers consume this product */
     public function customers()
     {
-    return $this->belongsToMany(Customer::class)->withPivot('qnt')->withTimestamps()->using(RoleUser::class);
+    return $this->belongsToMany(Customer::class, 'customer_product')->
+                   using(CustomerProduct::class);
     
     }
+    
 
 }
